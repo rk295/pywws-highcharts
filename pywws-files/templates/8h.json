@@ -1,0 +1,30 @@
+{
+    "data": [
+#timezone local#
+#raw#
+#! step back 96 data points. Why 96? well 8 hours is 480 minutes, and there is 
+#! a data point every 5 minutes, so 480/5 = 96
+#jump -96#
+#jump 1#
+#loop 95#
+    {
+        "#idx "%m/%d/%Y %H:%M"#": {
+            "TempOut": #temp_out "%.1f"#,
+            "FeelsLike": #calc "apparent_temp(data['temp_out'], data['hum_out'], data['wind_ave'])" "%.1f"#,
+            "HumidityOut": #hum_out "%d"#,
+            "DewPoint": #calc "dew_point(data['temp_out'], data['hum_out'])" "%.1f"#,
+            "WindDirection": " #wind_dir "%s" "-" "winddir_text(x)"# ",
+            "WindAvg": #wind_ave "%.0f" "" "x"#,
+            "WindGust": #wind_gust "%.0f" "" "x"#,
+            "WindChill": #calc "wind_chill(data['temp_out'], data['wind_ave'])" "%.1f"#,
+            "Rain": #calc "data['rain']-prevdata['rain']" "%0.1f"#,
+            "AbsPressure": #abs_pressure "%.1f"#
+        }
+    },
+#jump 1#
+#endloop#
+#! This is needed because the above loop creates a traliing comma 
+#! on the last run through the loop
+    {}
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "data": [
+#timezone local#
+#raw#
+#jump -300#
+#loop 100#
+    {
+        "#idx "%m/%d/%Y %H:%M"#": {
+            "TempOut": #temp_out "%.1f" "null"#,
+            "FeelsLike": #calc "apparent_temp(data['temp_out'], data['hum_out'], data['wind_ave'])" "%.1f" "null"#,
+            "HumidityOut": #hum_out "%d" "null"#,
+            "DewPoint": #calc "dew_point(data['temp_out'], data['hum_out'])" "%.1f" "null"#,
+            "WindDirection": " #wind_dir "%s" "-" "winddir_text(x)"# ",
+            "WindAvg": #wind_ave "%.0f" "null" "wind_mph(x)"#,
+            "WindGust": #wind_gust "%.0f" "null" "wind_mph(x)"#,
+            "WindChill": #calc "wind_chill(data['temp_out'], data['wind_ave'])" "%.1f" "null"#,
+            "Rain": #calc "data['rain']-prevdata['rain']" "%0.1f" "null"#,
+            "AbsPressure": #abs_pressure "%.1f" "null"#
+        }
+    },
+#jump 3#
+#endloop#
+#! This is needed because the above loop creates a traliing comma 
+#! on the last run through the loop
+    {}
+    ]
+}
