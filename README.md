@@ -2,7 +2,7 @@
 
 This is the code which I use on [info.riviera.org.uk](http://info.riviera.org.uk) to produce the weather graphs.
 
-Click [herehttps://raw.githubusercontent.com/rk295/pywws-highcharts/master/images/example.png) for an example.
+Click [here](https://raw.githubusercontent.com/rk295/pywws-highcharts/master/images/example.png) for an screenshot, or [here](http://info.riviera.org.uk) for my live example.
 
 The maplin weather station is plugged into a Linux machine which runs [pywws](https://jim-easterbrook.github.io/pywws/) to pull the data off the USB line and run it through a series of templates. I've simply defined a couple of templates which output vaid JSON. These files are then read by JavaScript in the web page to display the graphs. [Twitter Bootstrap](http://getbootstrap.com/) is used to make some nice looking tabs and navigation elements.
 
