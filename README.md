@@ -59,4 +59,4 @@ General todos I have in mind are:
 * The JS is probably very kludgy, it was my first time writing it, and I've since learnt a bit more about JS and Bootstrap so could probably do away with the page loads for each time interval down the left hand side.
 * The graphs also could do with some work, perhaps showing summaries as the time spans get longer.
 * I've yet to find a way of getting wind rose data out of pywws textually, so the png is just included for now, but wrapped in a bootstrap ```img-responsive``` tag.
-* The last tab is a simple include of one of the default pywws png graphs. Its motly redundant, I was simply using it for testin.
+* The last tab is a simple include of one of the default pywws png graphs. Its motly redundant, I was simply using it for testing.
