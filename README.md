@@ -10,7 +10,7 @@ The [maplin](http://www.maplin.co.uk/p/silver-usb-wireless-touchscreen-weather-f
 ### pywws
 The templates for pywws are in the ```pywws-files``` directory, they are essentially all the same, they just offer different time spans. Although the ones ending ```.html``` are used as includes in the first tab for some textual info about recent weather.
 
-You need to edit weather.ini to adjust your installation. The important lines are:
+You need to edit ```weather.ini``` and adjust to your installation. The important lines are:
 
 * ```directory``` This directory needs to be readable by the webserver because the JavaScript needs to read the JSON (via a URL) from here.
 * ```templates``` Where your pywws templates are held
@@ -51,3 +51,12 @@ Inside ```index.php``` there is a single PHP define ```PYWWS_OUTPUT_DIR``` which
     ]
 }
 ```
+
+## Other stuff
+
+General todos I have in mind are:
+
+* The JS is probably very kludgy, it was my first time writing it, and I've since learnt a bit more about JS and Bootstrap so could probably do away with the page loads for each time interval down the left hand side.
+* The graphs also could do with some work, perhaps showing summaries as the time spans get longer.
+* I've yet to find a way of getting wind rose data out of pywws textually, so the png is just included for now, but wrapped in a bootstrap ```img-responsive``` tag.
+* The last tab is a simple include of one of the default pywws png graphs. Its motly redundant, I was simply using it for testin.
