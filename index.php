@@ -1,6 +1,7 @@
 <?php
 
-define('PYWWS_OUTPUT_DIR', '/home/robin/sites/info.riviera.org.uk/htdocs/pywws');
+define('PYWWS_OUTPUT_DIR', '/var/www/html/weather/output');
+define('PYWWS_OUTPUT_WEB_DIR', '/weather/output');
 
 if ( isset($_GET['period']) && $_GET['period'] != "" ){
   $period = $_GET['period'];
@@ -45,14 +46,14 @@ $intervals = array(
         <div id="my-tab-content" class="tab-content">
             <div class="tab-pane fade" id="info">
                 <h4>Data from the <?php echo $intervals[$period];?></h4>
-                <?php include "pywws/$period.html"; ?>
+                <?php include PYWWS_OUTPUT_DIR . "/$period.html"; ?>
             </div>
             <div class="tab-pane active fade in" id="temp"><div id="temp-container"></div></div>
             <div class="tab-pane fade" id="wind"><div id="wind-container"></div></div>
             <div class="tab-pane fade" id="rain"><div id="rain-container"></div></div>
             <div class="tab-pane fade" id="pressure"><div id="pressure-container"></div></div>
-            <div class="tab-pane fade" id="windrose"><img src="pywws/rose_<?php echo $period;?>.png" class="img-responsive"></div>
-            <div class="tab-pane fade" id="pywws"><img src="pywws/<?php echo $period;?>.png" class="img img-responsive"></div>
+            <div class="tab-pane fade" id="windrose"><img src="<?php echo PYWWS_OUTPUT_WEB_DIR . "/rose_$period";?>.png" class="img-responsive"></div>
+            <div class="tab-pane fade" id="pywws"><img src="<?php echo PYWWS_OUTPUT_WEB_DIR . "/$period";?>.png" class="img img-responsive"></div>
         </div>
 	</div><!-- ./ col-md-10 -->
 
@@ -139,7 +140,7 @@ function showTempChart(){
     series: []
   };
 
-  $.getJSON('pywws/<?php echo $period;?>.json', function(json){
+  $.getJSON('<?php echo PYWWS_OUTPUT_WEB_DIR . "/$period";?>.json', function(json){
 
     var outTempdata  = new Array();
     var windChillTempdata  = new Array();
@@ -269,7 +270,7 @@ function showWindChart(){
     series: []
   };
 
-  $.getJSON('pywws/<?php echo $period;?>.json', function(json){
+  $.getJSON('<?php echo PYWWS_OUTPUT_WEB_DIR . "/$period";?>.json', function(json){
 
     var WindAvgdata = new Array();
     var WindGustdata = new Array();
@@ -366,7 +367,7 @@ function showRainChart(){
     series: []
   };
 
-  $.getJSON('pywws/<?php echo $period;?>.json', function(json){
+  $.getJSON('<?php echo PYWWS_OUTPUT_WEB_DIR . "/$period";?>.json', function(json){
 
     var data = new Array();
     var Totaldata = new Array();
@@ -461,7 +462,7 @@ function showPressureChart(){
     series: []
   };
 
-  $.getJSON('pywws/<?php echo $period;?>.json', function(json){
+  $.getJSON('<?php echo PYWWS_OUTPUT_WEB_DIR . "/$period";?>.json', function(json){
 
     var data = new Array();
     var Totaldata = new Array();

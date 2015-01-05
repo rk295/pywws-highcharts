@@ -19,7 +19,10 @@ Pywws can run data through any number of templates, so you can simply add the js
 
 ###php
 
-Inside ```index.php``` there is a single PHP define ```PYWWS_OUTPUT_DIR``` which needs to point to the directory specified in the ```weather.ini``` which pywws uses.
+Inside ```index.php``` there are two PHP defines which need configuring:
+
+* ```PYWWS_OUTPUT_DIR``` needs to point to the directory specified in the ```weather.ini``` which pywws uses.
+* ```PYWWS_OUTPUT_WEB_DIR```  neds to point to the web URI for the above directory from wherever the index.php file is, eg: ```/weather/output```
 
 
 ### Example Template (24h)
